@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
+import styled, { css, ThemeProvider } from 'styled-components';
 
 const mainColor = 'darkcyan';
 const secondaryColor = 'palevioletred';
@@ -55,6 +55,26 @@ const NButton = styled(Button)`
       `};
 `;
 
+const TButton = styled.button`
+        font-size: 1em;
+        margin: 1em;
+        padding: 0.25em 1em;
+        border-radius: 3px;
+
+        color: ${props => props.theme.main};
+        border: 2px solid ${props => props.theme.main};
+`;
+
+TButton.defaultProps = {
+    theme: {
+        main: 'orange'
+    }
+}
+
+const themeSettings = {
+    main: 'blue'
+}
+
 export const App = () => {
     return (
         <div>
@@ -68,6 +88,10 @@ export const App = () => {
             <StyledComp complex whiteColor={true}>I should be white</StyledComp>
             <StyledComp complex> I should be black</StyledComp>
             <StyledComp> I should be blue</StyledComp>
+            <TButton>Not Themed</TButton>
+            <ThemeProvider theme={themeSettings}>
+                <TButton>Themed</TButton>
+            </ThemeProvider>
         </div>
     )
 }

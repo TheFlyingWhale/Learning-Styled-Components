@@ -45,7 +45,7 @@ const NButton = styled(Button)`
     color: palevioletred;
     margin: 0 1em;
     padding: 0.25em 1em;
-    transition: 0.5s all ease-out;
+    transition: 0.2s all ease-out;
 
     ${props => props.primary &&
         css`
@@ -60,9 +60,17 @@ const TButton = styled.button`
         margin: 1em;
         padding: 0.25em 1em;
         border-radius: 3px;
+        cursor: pointer;
 
         color: ${props => props.theme.main};
         border: 2px solid ${props => props.theme.main};
+
+        transition: 0.2s all ease-out;
+
+        &:hover {
+            background-color: ${props => props.theme.main};
+            color: white;
+        }
 `;
 
 TButton.defaultProps = {

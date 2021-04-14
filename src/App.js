@@ -37,7 +37,7 @@ const StyledComp = styled.div`
     ${props => (props.complex ? completeMixin : 'color:blue')};
 `;
 
-const NButton = styled.button`
+const NButton = styled(Button)`
     cursor: pointer;
     background: transparent;
     font-size: 16px;
